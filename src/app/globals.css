@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: theme(colors.sky.600)
+}
+
+form {
+    width: 20vw
+}
+
+input {
+    width: 100%;
+    border: 1px solid rgb(209 213 219);
+    padding: 0.25rem;
+    display: block;
+    margin-bottom: 1em;
+    border-radius: 0.25rem;
+}
+button {
+    text-align: center;
+    width: 100%;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
