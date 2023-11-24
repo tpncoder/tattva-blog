@@ -1,5 +1,5 @@
 import axios from "axios"
-import IPost from "../../../types/Post"
+import IPost from "@/types/Post"
 import formatDistance from 'date-fns/formatDistance'
 import { notFound } from 'next/navigation'
 
