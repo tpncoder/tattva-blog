@@ -1,7 +1,6 @@
 import { Providers } from "@/lib/providers";
 import Loading from "@/components/loading";
 import NavbarComponent from '@/components/navbar';
-import { WebVitals } from "@/components/web-vitals";
 
 import { Inter } from 'next/font/google'
 import { cookies } from "next/headers";
@@ -29,7 +28,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className='p-7'>
             <Providers>
               <Suspense fallback={<Loading />}>
-                <WebVitals />
                 {children}
               </Suspense>
             </Providers>
