@@ -1,9 +1,20 @@
-import { Providers } from "./providers";
+import { Providers } from "@/lib/providers";
+import Loading from "@/components/loading";
+import NavbarComponent from '@/components/navbar';
+import { WebVitals } from "@/components/web-vitals";
+
 import { Inter } from 'next/font/google'
 import { cookies } from "next/headers";
-import './globals.css'
+import { Suspense } from "react";
+import type { Metadata } from 'next'
+import { Divider } from "@nextui-org/react"
 
-import NavbarComponent from '@/components/Navbar';
+import '@/css/globals.css'
+ 
+export const metadata: Metadata = {
+  title: 'Tattva Blog',
+  description: 'a medicinal blog'
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +28,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavbarComponent loggedIn={loggedIn}/>
           <main className='p-7'>
             <Providers>
-              {children}
+              <Suspense fallback={<Loading />}>
+                <WebVitals />
+                {children}
+              </Suspense>
             </Providers>
           </main>
       </body>

@@ -20,7 +20,7 @@ export default async function Posts() {
         <>
         <ul>{
             posts.map((post: IPost) => {
-                return <Card key={post._id} className="mb-3" isPressable onPress={() => { router.push(`/posts/${post._id}`)}}>
+                return <Card key={post._id} className="mb-3 w-fit border-gray-300" isPressable onPress={() => { router.push(`/posts/${post._id}`)}}>
                     <CardHeader>
                         <Link className="block text-xl font-bold" href={"/posts/" + post._id}>{post.title}</Link>
                     </CardHeader>

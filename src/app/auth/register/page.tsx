@@ -1,6 +1,8 @@
 'use client'
 import { register } from "./register"
 import { useState } from "react"
+import { InputField } from '@/components/InputField';
+import { Card, CardBody, CardFooter, Button} from "@nextui-org/react";
 import Link from "next/link"
 
 export default function Register() {
@@ -10,34 +12,19 @@ export default function Register() {
     return (
         <main>
             <h1 className="text-3xl mb-4 font-bold">Create New User</h1>
-            <div className="border border-gray-300 w-fit p-4 rounded-lg h-64">
-                <form action={() => register({"userName": userName, "email": email, "password": password, "role": "viewer"})}>
-                    <input
-                        value={email}
-                        placeholder="Enter your email"
-                        onChange={(event) => {
-                            setEmail(event.target.value)
-                        }}
-                    />
-                    <input
-                        value={userName}
-                        placeholder="Enter your user name"
-                        onChange={(event) => {
-                            setUserName(event.target.value)
-                        }}
-                    />
-                    <input
-                        value={password}
-                        placeholder="Enter your password"
-                        type="password"
-                        onChange={(event) => {
-                            setPassword(event.target.value)
-                        }}
-                    />
-                    <button type="submit">Register</button>
+            <Card className="w-fit flex items-center">
+                <CardBody>
+                    <form action={() => register({"userName": userName, "email": email, "password": password, "role": "viewer"})}>
+                        <InputField value="Email" placeholder="Enter your email" setHook={setEmail}  />
+                        <InputField value="User Name" placeholder="Enter your username" setHook={setUserName}  />
+                        <InputField value="Password" placeholder="Enter your password" setHook={setPassword}  />
+                        <Button className="w-fit" type="submit" variant="ghost" color="primary">Submit</Button>
+                    </form>
+                </CardBody>
+                <CardFooter>
                     <p className="mt-3 text-gray-600">Already have an account? <Link href="/auth/login" className="text-sky-600">Log In</Link></p>
-                </form>
-            </div>
+                </CardFooter>
+            </Card>
         </main>
     )
-}
+  }
